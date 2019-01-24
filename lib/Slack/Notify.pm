@@ -1,6 +1,4 @@
-package Slack::Notify {
-
-# ABSTRACT: Trigger Slack incoming webhooks
+package Slack::Notify;
 
 use namespace::autoclean;
 
@@ -25,10 +23,7 @@ sub post {
   );
 }
 
-}
-
-package # hide from PAUSE
-  Slack::Notify::Payload {
+package Slack::Notify::Payload;
 
 use namespace::autoclean;
 
@@ -58,10 +53,7 @@ sub _build__hash {
   };
 }
 
-}
-
-package # hide from PAUSE
-  Slack::Notify::Attachment {
+package Slack::Notify::Attachment;
 
 use namespace::autoclean;
 
@@ -100,10 +92,7 @@ sub _build__hash {
   };
 }
 
-}
-
-package # hide from PAUSE
-  Slack::Notify::Field {
+package Slack::Notify::Field;
 
 use namespace::autoclean;
 
@@ -117,8 +106,6 @@ has short => ( 'is' => 'ro', isa => Bool );
 sub to_hash { shift->_hash }
 has _hash => ( is => 'lazy', isa => HashRef );
 sub _build__hash { my ($self) = @_; +{ %$self } }
-
-}
 
 1;
 
